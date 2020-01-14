@@ -1,0 +1,153 @@
+input[type='text'],
+input[type='email'] {
+  width: 100%;
+  max-width: 100%;
+  background: $white;
+  color: $lightBlack;
+  padding: 3px 3px 3px 12px;
+  border-radius: 0px;
+  outline: none !important;
+  // border: 0px !important;
+  font-size: 15px;
+  line-height: 34px;
+  transition: ease 0.3s background, ease 0.3s background;
+  font-family: $Montserrat;
+  border: 1px solid white;
+
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $lightBlack;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  &:hover {
+    background: #ffe0be;
+    // color: $white;
+  }
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  background: $white;
+  color: $lightBlack;
+  padding: 12px 3px 12px 12px;
+  border-radius: 0px;
+  outline: none !important;
+  font-size: 15px;
+  line-height: 20px;
+  transition: ease 0.3s background, ease 0.3s background;
+  height: 140px;
+  font-family: $Montserrat;
+  resize: none;
+  overflow-y: scroll;
+  // overflow-style: none;
+  -ms-overflow-style: none;
+  border: 1px solid white;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $lightBlack;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  &:hover {
+    background: #ffe0be;
+    // color: $white;
+  }
+}
+
+.input-con {
+  position: relative;
+  margin-bottom: 10px;
+
+  &.no-margin {
+    margin-bottom: 0px;
+    display: inline-grid;
+    width: 100%;
+  }
+
+  &.error {
+
+    input[type='text'],
+    input[type='email'] {
+      border: 1px solid #f60419;
+    }
+  }
+
+  &.sending {
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+      background: #dcdcdc !important;
+    }
+  }
+}
+
+.form-message {
+  border: 1px solid #5cb85c;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+  color: #5cb85c;
+  position: absolute;
+  top: calc(100% + 12px);
+  width: 100%;
+  right: 0px;
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  &.error-message {
+    border-color: #f60419;
+    color: #f60419;
+  }
+}
+
+.button-con {
+  margin-bottom: 12px;
+}
+
+.submit-button,
+.resume {
+  background: $gold;
+  outline: none !important;
+  position: relative;
+  transition: ease 0.3s opacity;
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 20px;
+  color: $white;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+  }
+}
+
+.submit-button {
+  &.sending-form {
+    background: #dcdcdc !important;
+    pointer-events: none !important;
+  }
+}
+
+.resume {
+  color: $white;
+}

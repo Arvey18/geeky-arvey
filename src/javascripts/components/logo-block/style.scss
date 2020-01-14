@@ -1,0 +1,96 @@
+@import '../../../stylesheets/app.scss';
+
+.logo-block {
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+  height: 100%;
+
+  &:hover>.logo-block-overlay {
+    opacity: 1;
+    padding: 0px 15px;
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    position: relative;
+    max-width: 200px;
+    width: 100%;
+    opacity: 0;
+    transition: ease 0.3s opacity;
+
+    &.show-logo-block-image {
+      opacity: 1;
+    }
+  }
+
+  .logo-block-overlay {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding: 0px 0px;
+    transition: 0.2s linear all;
+    cursor: pointer;
+
+    &>div {
+      background: rgba(51, 51, 51, 0.5);
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    h5 {
+      margin-top: 15px;
+      margin-bottom: 0px;
+      font-size: 18px;
+      color: $white;
+      line-height: 22px;
+      font-family: $Caveat;
+      font-weight: normal;
+    }
+
+    .line {
+      position: relative;
+      display: block;
+      height: 1px;
+      width: 150px;
+      background: $gold;
+      margin: 0 auto;
+    }
+
+    * {
+      color: $white;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .logo-block img {
+    max-width: 130px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .logo-block img {
+    max-width: 100px;
+  }
+}
