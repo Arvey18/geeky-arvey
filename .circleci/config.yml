@@ -70,6 +70,3 @@ workflows:
   build_deploy:
     jobs:
       - build1
-      - build2:
-          requires:
-            - build1
