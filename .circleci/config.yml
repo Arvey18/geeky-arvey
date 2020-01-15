@@ -78,6 +78,11 @@ jobs:
           name: 'Build Project'
           command: yarn build
 
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
   build3:
     filters:
       branches:

@@ -9,7 +9,7 @@ import Navigation from '../../components/navigation';
 const customHistory = createBrowserHistory();
 
 describe('load home', () => {
-  it('load home', () => {
+  it('visit home', () => {
     expect(customHistory.location.pathname).toEqual('/');
   });
 
