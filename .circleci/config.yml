@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  build1:
     filters:
       branches:
         only:
@@ -30,10 +30,46 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: yarn install
-      # - save_cache:
-      #     paths:
-      #       - node_modules
-      #     key: v1-dependencies-{{ checksum "package.json" }}
-      # # run tests!
-      # - run: yarn test
+      - run:
+        name: Install Dependencies
+        command: yarn install
+
+      # Test Project
+      # - run:
+      #   name: Test Project
+      #   command: yarn test
+
+      # Build Project
+      - run:
+        name: Build Project
+        command: yarn build
+
+  build2:
+    filters:
+      branches:
+        only:
+          - development
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:12.9.0
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/geeky-arvey
+
+    steps:
+      # Firebase Login
+      - run:
+        name: Deploy Development to Firebase
+        command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+
+workflows:
+  version: 2
+  install_build_test_firebase_login_firebase_deploy:
+    jobs:
+      - build1
+      - build2:
+        requires:
+          - build1
