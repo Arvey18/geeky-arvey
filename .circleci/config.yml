@@ -62,11 +62,14 @@ jobs:
     steps:
       # Firebase Deploy
       - run:
-        name: 'Deploy Development to Firebase'
-        command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          name: 'Deploy Development to Firebase'
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
   version: 2
   build_deploy:
     jobs:
       - build1
+      - build2:
+          requires:
+            - build1
