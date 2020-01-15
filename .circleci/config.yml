@@ -61,11 +61,6 @@ jobs:
     working_directory: ~/geeky-arvey
 
     steps:
-      # Install Dependencies
-      - run:
-          name: 'Install Dependencies'
-          command: yarn install
-
       # Firebase Deploy
       - run:
           name: 'Deploy Development to Firebase'
