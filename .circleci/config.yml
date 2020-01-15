@@ -8,7 +8,7 @@ jobs:
     filters:
       branches:
         only:
-          - development
+          - master
     docker:
       # specify the version you desire here
       - image: circleci/node:12.9.0
@@ -59,7 +59,7 @@ jobs:
     filters:
       branches:
         only:
-          - development
+          - master
     docker:
       # specify the version you desire here
       - image: circleci/node:12.9.0
@@ -75,7 +75,7 @@ jobs:
           at: .
       # Firebase Deploy
       - run:
-          name: 'Deploy Development to Firebase'
+          name: 'Deploy master to Firebase'
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:

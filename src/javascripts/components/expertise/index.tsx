@@ -286,7 +286,7 @@ export default function Expertise(props: any): ReactElement {
             <div className="logo-block-container">
               <LogoBlock
                 title="TypeScript"
-                cat="JavaScript Typed Superset"
+                cat="JavaScript"
                 image={TypescriptLogo}
               />
             </div>
