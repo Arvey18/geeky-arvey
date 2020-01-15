@@ -60,7 +60,7 @@ jobs:
     working_directory: ~/geeky-arvey
 
     steps:
-      # Firebase Login
+      # Firebase Deploy
       - run:
         name: Deploy Development to Firebase
         command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
