@@ -30,6 +30,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      # Install Dependencies
       - run:
           name: 'Install Dependencies'
           command: yarn install
@@ -60,6 +61,11 @@ jobs:
     working_directory: ~/geeky-arvey
 
     steps:
+      # Install Dependencies
+      - run:
+          name: 'Install Dependencies'
+          command: yarn install
+
       # Firebase Deploy
       - run:
           name: 'Deploy Development to Firebase'
