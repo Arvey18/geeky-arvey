@@ -31,7 +31,7 @@ jobs:
             - v1-dependencies-
 
       - run:
-        name: Install Dependencies
+        name: 'Install Dependencies'
         command: yarn install
 
       # Test Project
@@ -41,7 +41,7 @@ jobs:
 
       # Build Project
       - run:
-        name: Build Project
+        name: 'Build Project'
         command: yarn build
 
   build2:
@@ -62,7 +62,7 @@ jobs:
     steps:
       # Firebase Deploy
       - run:
-        name: Deploy Development to Firebase
+        name: 'Deploy Development to Firebase'
         command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
 
 workflows:
