@@ -45,9 +45,6 @@ jobs:
           name: 'Build Project'
           command: yarn build
 
-      - persist_to_workspace:
-          root: ./
-
   build2:
     filters:
       branches:
@@ -66,7 +63,7 @@ jobs:
     steps:
       # Firebase Deploy
       - attach_workspace:
-          at: ./node_modules/
+          at: .
 
       - run:
           name: 'Deploy Development to Firebase'
