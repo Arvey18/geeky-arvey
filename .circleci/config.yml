@@ -31,8 +31,8 @@ jobs:
             - v1-dependencies-
 
       - run:
-        name: 'Install Dependencies'
-        command: yarn install
+          name: 'Install Dependencies'
+          command: yarn install
 
       # Test Project
       # - run:
@@ -41,8 +41,8 @@ jobs:
 
       # Build Project
       - run:
-        name: 'Build Project'
-        command: yarn build
+          name: 'Build Project'
+          command: yarn build
 
   build2:
     filters:
