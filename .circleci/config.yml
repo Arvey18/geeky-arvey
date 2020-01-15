@@ -35,6 +35,11 @@ jobs:
           name: 'Install Dependencies'
           command: yarn install
 
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
       # Test Project
       # - run:
       #   name: Test Project
@@ -44,6 +49,11 @@ jobs:
       - run:
           name: 'Build Project'
           command: yarn build
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
   build2:
     filters:
@@ -61,10 +71,9 @@ jobs:
     working_directory: ~/geeky-arvey
 
     steps:
-      # Firebase Deploy
       - attach_workspace:
           at: .
-
+      # Firebase Deploy
       - run:
           name: 'Deploy Development to Firebase'
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
