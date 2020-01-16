@@ -10,7 +10,7 @@ const customHistory = createBrowserHistory();
 
 describe('load home', () => {
   it('visit home', () => {
-    expect(customHistory.location.pathname).toEqual('/');
+    expect(customHistory.location.pathname).toEqual('/sss');
   });
 
   it('load navigation', () => {
