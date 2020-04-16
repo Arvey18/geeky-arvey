@@ -7,8 +7,6 @@ import './style.scss';
 import Hero from '../../components/hero';
 import Navigation from '../../components/navigation';
 import NavigationPanel from '../../components/navigation-panel';
-// import NavigationBullet from '../../components/bullet-navigation';
-// import AboutMe from '../../components/about-me';
 import Expertise from '../../components/expertise';
 import Experience from '../../components/my-experience';
 import Contact from '../../components/contact';

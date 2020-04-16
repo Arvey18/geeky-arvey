@@ -68,10 +68,21 @@ export default function MyExperience(props: any): ReactElement {
         </div>
         <div className="section-content">
           <div className="work-timeline">
+          <div className="work-timeline-box ">
+              <div className="work-timeline-box-content">
+                <div>
+                  <div className="year">March 2020 - Present</div>
+                  <div className="company">QuadX Inc.</div>
+                  <div className="title">Frontend Engineer</div>
+                  <div className="job">
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="work-timeline-box ">
               <div className="work-timeline-box-content">
                 <div>
-                  <div className="year">Apr 2019 - Present</div>
+                  <div className="year">Apr 2019 - March 2020</div>
                   <div className="company">Fast Venture Builder</div>
                   <div className="title">Software Developer</div>
                   <div className="job">
