@@ -68,13 +68,14 @@ export default function MyExperience(props: any): ReactElement {
         </div>
         <div className="section-content">
           <div className="work-timeline">
-          <div className="work-timeline-box ">
+          <div className="work-timeline-box right-box">
               <div className="work-timeline-box-content">
                 <div>
                   <div className="year">March 2020 - Present</div>
                   <div className="company">QuadX Inc.</div>
                   <div className="title">Frontend Engineer</div>
                   <div className="job">
+                    Implement Designed UI to a working Web Applications. Work and collaborate with team for improving, decision making on new or existing Web Applications. Attend Internal Calls and Meetings as required. Share knowledge with Colleagues.
                   </div>
                 </div>
               </div>
