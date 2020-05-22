@@ -2,8 +2,8 @@ input[type='text'],
 input[type='email'] {
   width: 100%;
   max-width: 100%;
-  background: $white;
-  color: $lightBlack;
+  background: $cream;
+  color: $black;
   padding: 3px 3px 3px 12px;
   border-radius: 0px;
   outline: none !important;
@@ -12,26 +12,25 @@ input[type='email'] {
   line-height: 34px;
   transition: ease 0.3s background, ease 0.3s background;
   font-family: $Montserrat;
-  border: 1px solid white;
+  border: 1px solid cream;
 
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $lightBlack;
+    color: $black;
     opacity: 1;
     /* Firefox */
   }
 
   &:hover {
-    background: #ffe0be;
-    // color: $white;
+    background: $cream;
   }
 }
 
 textarea {
   width: 100%;
   max-width: 100%;
-  background: $white;
-  color: $lightBlack;
+  background: $cream;
+  color: $black;
   padding: 12px 3px 12px 12px;
   border-radius: 0px;
   outline: none !important;
@@ -44,7 +43,7 @@ textarea {
   overflow-y: scroll;
   // overflow-style: none;
   -ms-overflow-style: none;
-  border: 1px solid white;
+  border: 1px solid $cream;
 
   &::-webkit-scrollbar {
     display: none;
@@ -52,14 +51,13 @@ textarea {
 
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: $lightBlack;
+    color: $black;
     opacity: 1;
     /* Firefox */
   }
 
   &:hover {
-    background: #ffe0be;
-    // color: $white;
+    background: $cream;
   }
 }
 
@@ -77,7 +75,7 @@ textarea {
 
     input[type='text'],
     input[type='email'] {
-      border: 1px solid #f60419;
+      border: 1px solid $red;
     }
   }
 
@@ -109,8 +107,8 @@ textarea {
   }
 
   &.error-message {
-    border-color: #f60419;
-    color: #f60419;
+    border-color: $red;
+    color: $red;
   }
 }
 
@@ -127,7 +125,7 @@ textarea {
   opacity: 0.8;
   font-size: 15px;
   line-height: 20px;
-  color: $white;
+  color: $cream;
   width: 100%;
   padding: 12px;
   text-align: center;
@@ -143,11 +141,11 @@ textarea {
 
 .submit-button {
   &.sending-form {
-    background: #dcdcdc !important;
+    background: $cream !important;
     pointer-events: none !important;
   }
 }
 
 .resume {
-  color: $white;
+  color: $cream;
 }

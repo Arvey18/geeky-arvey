@@ -4,40 +4,18 @@ import React, {ReactElement} from 'react';
 import './style.scss';
 
 // components
-import Hero from '../../components/hero';
 import Navigation from '../../components/navigation';
-import NavigationPanel from '../../components/navigation-panel';
-import Expertise from '../../components/expertise';
-import Experience from '../../components/my-experience';
-import Contact from '../../components/contact';
-import Footer from '../../components/footer';
+import Header from '../../components/header';
+import About from '../../components/about';
+import Skills from '../../components/skills';
 
 export default function Home(props: any): ReactElement {
-  // use states
-  const [openNavPanel, setOpenNavPanel] = React.useState(false);
-
-  // custom functions
-  const handleNavPanel = (status: boolean) => {
-    setOpenNavPanel(status);
-  };
-
-  return (
-    <div id="home">
-      <Navigation
-        open={openNavPanel}
-        handleNavPanel={(status: boolean) => handleNavPanel(status)}
-      />
-      <NavigationPanel
-        open={openNavPanel}
-        handleNavPanel={(status: boolean) => handleNavPanel(status)}
-      />
-      {/* <NavigationBullet /> */}
-      <Hero />
-      {/* <AboutMe /> */}
-      <Expertise />
-      <Experience />
-      <Contact />
-      <Footer />
-    </div>
-  );
+	return (
+		<div id='home'>
+			<Navigation />
+			<Header />
+			<About />
+			<Skills />
+		</div>
+	);
 }

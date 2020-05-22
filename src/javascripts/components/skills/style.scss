@@ -1,0 +1,139 @@
+@import '../../../stylesheets/app.scss';
+
+.skills {
+  position: relative;
+  background: $blue;
+
+  .content {
+    display: flex;
+    flex-flow: row;
+
+    &>div {
+      flex: 1;
+
+      &.content-text {
+        padding-right: 30px;
+
+        .pre-title {
+          font-size: 16px;
+          color: $red;
+          font-weight: 500;
+          margin-bottom: 20px;
+        }
+
+        .title {
+          font-weight: 700;
+          color: $white;
+          font-size: 32px;
+          margin-bottom: 25px;
+        }
+
+        .description {
+          color: $cream;
+          margin-bottom: 40px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      &.content-skills {
+        .skill-block {
+          margin-bottom: 30px;
+
+          .skill-name {
+            color: $white;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+          }
+
+          .skill-line {
+            height: 5px;
+            background: rgba(192, 88, 80, 0.2);
+            width: 100%;
+            position: relative;
+
+            &:before {
+              content: "";
+              width: 100%;
+              background: $red;
+              height: 100%;
+              position: absolute;
+              left: 0px;
+              top: 0px;
+            }
+
+            &.p95 {
+              &:before {
+                width: 95%;
+              }
+
+              .skill-label {
+                left: calc(95% - 27px);
+              }
+            }
+
+            &.p90 {
+              &:before {
+                width: 90%;
+              }
+
+              .skill-label {
+                left: calc(90% - 27px);
+              }
+            }
+
+            &.p93 {
+              &:before {
+                width: 93%;
+              }
+
+              .skill-label {
+                left: calc(93% - 27px);
+              }
+            }
+
+            &.p88 {
+              &:before {
+                width: 88%;
+              }
+
+              .skill-label {
+                left: calc(88% - 27px);
+              }
+            }
+
+            .skill-label {
+              position: absolute;
+              color: #FFFFFF;
+              border: 1px solid #FFFFFF;
+              padding: 3px 13px;
+              border-radius: 5px;
+              font-size: 12px;
+              text-align: center;
+              left: calc(100% - 27px);
+              top: -34px;
+
+              &:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid $white;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -6px;
+              }
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+}
