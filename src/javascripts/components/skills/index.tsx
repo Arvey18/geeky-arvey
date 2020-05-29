@@ -1,5 +1,6 @@
 import React, {ReactElement} from 'react';
 import classNames from 'classnames';
+import doScrolling from '../../utils/scrollToSection';
 
 // styles
 import './style.scss';
@@ -13,14 +14,14 @@ interface IProps {}
 export default function Skills(props: IProps): ReactElement {
 
 	return (
-		<div className='section skills'>
+		<div id="skills" className='section skills'>
 			<div className='container'>
 				<div className="content">
 					<div className="content-text">
 						<div className="pre-title">{text.preTitle}</div>
 						<div className="title">{text.title}</div>
 						<div className="description">{text.description}</div>
-						<button>{text.button}</button>
+						<button onClick={() => doScrolling('#contact', 600)}>{text.button}</button>
 					</div>
 					<div className="content-skills">
 						{

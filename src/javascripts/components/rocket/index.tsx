@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+import doScrolling from '../../utils/scrollToSection';
 
 // styles
 import './style.scss';
@@ -26,7 +27,7 @@ export default function Rocket(props: IProps): ReactElement {
 		}
 	};
 	return (
-		<div className='rocket'>
+		<div onClick={() => doScrolling('#header', 600)} className='rocket'>
 			<i className="fas fa-rocket"></i>
 		</div>
 	);

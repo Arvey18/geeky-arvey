@@ -19,7 +19,7 @@ export default function About(props: IProps): ReactElement {
 	});
 	
 	return (
-		<div className='section about'>
+		<div id="about" className='section about'>
 			<div className='container'>
 				<div className='section-header'>
 					<h2>{text.sectionTitle}</h2>

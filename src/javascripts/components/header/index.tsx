@@ -1,4 +1,5 @@
 import React, {ReactElement} from 'react';
+import doScrolling from '../../utils/scrollToSection';
 
 // images
 import Man from '../../../assets/images/arvey.png';
@@ -22,7 +23,7 @@ export default function Header(): ReactElement {
 		window.scrollTo(0, 0);
 	});
 	return (
-		<div className='header'>
+		<div id="header" className='header'>
 			<div className='container'>
 				<div className='content'>
 					<div className='social-links'>
@@ -36,7 +37,7 @@ export default function Header(): ReactElement {
 					<div className='title'>{text.title}</div>
 					<div className='description'>{text.description}</div>
 					<div className='cta'>
-						<button>{text.button}</button>
+						<button onClick={() => doScrolling('#contact', 600)}>{text.button}</button>
 					</div>
 				</div>
 				<div className='content-image'>

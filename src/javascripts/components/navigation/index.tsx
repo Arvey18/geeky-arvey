@@ -1,6 +1,10 @@
 import React, {ReactElement} from 'react';
 import classNames from 'classnames';
 
+// utils
+import doScrolling from '../../utils/scrollToSection';
+import isElementInViewport from '../../utils/isElementOnViewport';
+
 // styles
 import './style.scss';
 
@@ -14,8 +18,11 @@ import menus from './data/menus';
 interface IProps {}
 
 interface MenusType {
+	id: string;
 	menu: string;
 	url: string;
+	target: string;
+	duration: number;
 }
 
 export default function Navigation(props: IProps): ReactElement {
@@ -33,51 +40,6 @@ export default function Navigation(props: IProps): ReactElement {
 	
 
 	// custom functions
-  const getElementY = (query: any) => {
-    return (
-      window.pageYOffset +
-      document.querySelector(query).getBoundingClientRect().top
-    );
-  };
-
-  const doScrolling = (element: any, duration: number) => {
-    let startingY = window.pageYOffset;
-    let elementY = getElementY(element);
-    // If element is close to page's bottom then window will scroll only to some position above the element.
-    let targetY =
-      document.body.scrollHeight - elementY < window.innerHeight
-        ? document.body.scrollHeight - window.innerHeight
-        : elementY;
-    let diff = targetY - startingY;
-    // Easing function: easeInOutCubic
-    // From: https://gist.github.com/gre/1650294
-    let easing = (t: any) => {
-      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    };
-    let start = 0;
-
-    if (!diff) return;
-
-    // Bootstrap our animation - it will get called right before next frame shall be rendered.
-    window.requestAnimationFrame(function step(timestamp) {
-      if (!start) start = timestamp;
-      // Elapsed miliseconds since start of scrolling.
-      let time = timestamp - start;
-      // Get percent of completion in range [0, 1].
-      let percent = Math.min(time / duration, 1);
-      // Apply the easing.
-      // It can cause bad-looking slow frames in browser performance tool, so be careful.
-      percent = easing(percent);
-
-      window.scrollTo(0, startingY + diff * percent);
-
-      // Proceed with animation as long as we wanted it to.
-      if (time < duration) {
-        window.requestAnimationFrame(step);
-      }
-    });
-	};
-	
 	const handleScrollEvent = () => {
 		const scroll = window.scrollY;
 		let st = window.pageYOffset || document.documentElement.scrollTop;
@@ -102,10 +64,30 @@ export default function Navigation(props: IProps): ReactElement {
 				element.classList.add('with-bg');
 			}
 		}
+		
+		for(let x = 0; x < menus.length; x++) {
+			const el = document.querySelector(menus[x].target);
+			console.log(el, isElementInViewport(el));
+			if(isElementInViewport(el)){
+				const menuEl = document.getElementById(menus[x].id);
+				const menusNav = document.getElementsByClassName('menus-nav');
+				if(menuEl !== null){
+					for(let y = 0; y < menusNav.length; y++) {
+						menusNav[y].classList.remove('active');
+						if((y + 1) === menusNav.length){
+							menuEl.classList.add('active');
+							break;
+						}
+					}
+					break;
+				}
+			}
+		}
+
 	};
 
-	const handleNavClick = (id) = {
-
+	const handleNavClick = (id: string, duration: number) => {
+		doScrolling(id, duration);
 	}
 
 	return (
@@ -116,7 +98,7 @@ export default function Navigation(props: IProps): ReactElement {
 				</div>
 				<div className='menus-wrapper'>
 					{menus.map((val: MenusType, key: number) => (
-						<div className={classNames(key === 0 && 'active')} key={key}>
+						<div id={val.id} onClick={() => handleNavClick(val.target, val.duration)} className={classNames('menus-nav',key === 0 && 'active')} key={key}>
 							{val.menu}
 						</div>
 					))}

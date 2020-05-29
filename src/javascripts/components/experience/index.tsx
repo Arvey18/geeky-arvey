@@ -17,7 +17,7 @@ export default function Experience(props: IProps): ReactElement {
 	});
 	
 	return (
-		<div className='section experience'>
+		<div id="experience" className='section experience'>
 			<div className='container'>
 				<div className="section-header">
 					<h2>{text.sectionTitle}</h2>
