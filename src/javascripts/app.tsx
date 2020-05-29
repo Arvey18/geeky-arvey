@@ -1,6 +1,4 @@
 import React from 'react';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fab} from '@fortawesome/free-brands-svg-icons';
 import {Router} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 
@@ -17,7 +15,6 @@ const App: React.FC = () => {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-		library.add(fab);
 	}, []);
 
 	return (
