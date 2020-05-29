@@ -11,7 +11,11 @@ import text from './data/text';
 interface IProps {}
 
 export default function Experience(props: IProps): ReactElement {
-
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	});
+	
 	return (
 		<div className='section experience'>
 			<div className='container'>

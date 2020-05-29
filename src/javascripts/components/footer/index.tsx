@@ -10,8 +10,15 @@ import './style.scss';
 interface IProps {}
 
 export default function Footer(props: IProps): ReactElement {
+
+	// variables
 	const date = new Date();
 	const year = date.getFullYear();
+
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	});
 
 	return (
 		<div className='footer'>

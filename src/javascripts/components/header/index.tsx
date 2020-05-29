@@ -17,6 +17,10 @@ interface socialLinksType {
 }
 
 export default function Header(): ReactElement {
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	});
 	return (
 		<div className='header'>
 			<div className='container'>

@@ -1,4 +1,6 @@
 import React, {ReactElement} from 'react';
+import classNames from 'classnames';
+import {sendFeedback, refreshRecaptcha} from './email-sender';
 
 // styles
 import './style.scss';
@@ -22,6 +24,11 @@ export default function Experience(props: IProps): ReactElement {
 	const [errorMessage, setErrorMessage] = React.useState('');
 	const [successMessage, setSuccessMessage] = React.useState(false);
 	const [sending, setSending] = React.useState(false);
+
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	});
 
 	// custom functions
 	const validateEmail = (email: string) => {
@@ -116,6 +123,127 @@ export default function Experience(props: IProps): ReactElement {
 			<div className='container'>
 				<div className="section-header">
 					<h2>{text.sectionTitle}</h2>
+					<p>{text.sectionDescription}</p>
+				</div>
+				<div className="content">
+					<div className="one form-fields">
+						<div
+							className={classNames(
+								'form-field-group',
+								sending ? 'sending-form' : ''
+							)}
+						>
+							<div className="form-loader">
+								{/* <img src={FormLoader} alt="form-loader" /> */}
+							</div>
+							<div className="flex-row">
+								<div className="flex-one">
+									<div
+										className={classNames(
+											'input-con',
+											reqFields && name === '' ? 'error' : '',
+											sending ? 'sending' : ''
+										)}
+									>
+										<input
+											value={name}
+											onChange={event => handleFormFields(event, 'name')}
+											type="text"
+											placeholder="Name *"
+											disabled={sending}
+										/>
+									</div>
+								</div>
+								<div className="flex-one">
+									<div
+										className={classNames(
+											'input-con',
+											errorEmail || (reqFields && email === '') ? 'error' : '',
+											sending ? 'sending' : ''
+										)}
+									>
+										<input
+											value={email}
+											onChange={event => handleFormFields(event, 'email')}
+											type="email"
+											placeholder="Email *"
+											disabled={sending}
+										/>
+									</div>
+								</div>
+							</div>
+							<div className={classNames('input-con', sending ? 'sending' : '')}>
+								<input
+									value={phone}
+									onChange={event => handleFormFields(event, 'phone')}
+									type="text"
+									placeholder="Phone"
+									disabled={sending}
+								/>
+							</div>
+							<div
+								className={classNames(
+									'input-con no-margin',
+									sending ? 'sending' : ''
+								)}
+							>
+								<textarea
+									value={message}
+									onChange={event => handleFormFields(event, 'message')}
+									placeholder="Message"
+									disabled={sending}
+								/>
+							</div>
+						</div>
+						<div className="input-con">
+							<div id="recaptchaCon" data-size="normal"></div>
+						</div>
+						<div className="flex-row form-buttons">
+							<div className="flex-one">
+								<div className="button-con">
+									<div
+										onClick={handleSubmit}
+										className={classNames(
+											'submit-button',
+											sending ? 'sending-form' : ''
+										)}
+									>
+										Send
+									</div>
+								</div>
+							</div>
+							<div className="flex-one">
+								<div className="resume-button-con">
+									<a
+										className="resume"
+										target="_blank"
+										rel="noopener noreferrer"
+										href="https://www.dropbox.com/s/nxhz3k66lkl3ng1/Resume%20-%20Arvey%20Jimenez.docx?dl=0"
+									>
+										Download Resume
+									</a>
+								</div>
+							</div>
+						</div>
+						<div
+							className={classNames(
+								'form-message error-message',
+								errorMessage !== '' ? 'show' : ''
+							)}
+						>
+							{errorMessage}
+						</div>
+						<div
+							className={classNames(
+								'form-message success-message',
+								successMessage ? 'show' : ''
+							)}
+						>
+							Your Message was successfully sent!
+							<br />
+							Have a great Day!
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -88,12 +88,15 @@ body {
 
 	h2 {
 		margin: 0px;
-		color: $cream;
+		color: $white;
 	}
 
 	p {
 		color: $cream;
 		margin-top: 20px;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -130,6 +133,7 @@ body {
 
 #recaptchaCon {
 	width: 100%;
+	margin-top: 10px;
 }
 
 button {

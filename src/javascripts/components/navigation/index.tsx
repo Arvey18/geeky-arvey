@@ -19,22 +19,47 @@ interface MenusType {
 }
 
 export default function Navigation(props: IProps): ReactElement {
+
+	// variable
+	let lastScrollTop = 0;
+
 	// use effects
 	React.useEffect(() => {
 		document.addEventListener('scroll', handleScrollEvent);
 		return () => {
 			document.removeEventListener('scroll', handleScrollEvent);
 		};
-	}, []);
+	});
 
 	// custom functions
 	const handleScrollEvent = () => {
 		const scroll = window.scrollY;
-		console.log(scroll);
+		let st = window.pageYOffset || document.documentElement.scrollTop;
+		const element = document.getElementById('navigation'); 
+		if(element !== null){
+			if(scroll !== 0){
+				if (st > lastScrollTop){
+					element.classList.remove('show');
+					element.classList.add('hide');
+				} else {
+					element.classList.remove('hide');
+					element.classList.add('show');
+				}
+				lastScrollTop = st <= 0 ? 0 : st;
+			}else{
+				element.classList.remove('show');
+				element.classList.remove('hide');
+				element.classList.remove('with-bg');
+			}
+
+			if(scroll > 400){
+				element.classList.add('with-bg');
+			}
+		}
 	};
 
 	return (
-		<div className={classNames('navigation flex-row')}>
+		<div id="navigation" className={classNames('navigation flex-row')}>
 			<div className='container'>
 				<div className='logo-wrapper'>
 					<img className='logo' src={logo} alt='logo' />

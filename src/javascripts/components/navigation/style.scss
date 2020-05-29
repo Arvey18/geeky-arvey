@@ -8,14 +8,20 @@
   background: transparent;
   top: 0px;
   box-shadow: none;
-  transition: ease 0.3s all;
+  transition: linear 0.3s all;
 
   &.hide {
     top: -132px;
+    transition: linear 0.3s all;
   }
 
   &.show {
     top: 0px;
+    transition: linear 0.3s all;
+  }
+
+  &.with-bg {
+    transition: linear 0.3s all;
     background: $black;
     box-shadow: 0px -3px 5px #000000;
   }

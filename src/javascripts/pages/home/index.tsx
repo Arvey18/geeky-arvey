@@ -1,29 +1,38 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, Suspense, lazy } from 'react';
 
 // styles
 import './style.scss';
 
 // components
-import Navigation from '../../components/navigation';
-import Header from '../../components/header';
-import About from '../../components/about';
-import Skills from '../../components/skills';
-import Experience from '../../components/experience';
-import Contact from '../../components/contact';
-import Footer from '../../components/footer';
-import Rocket from '../../components/rocket';
+import Loader from '../../components/loader';
+const Navigation = lazy(() => import('../../components/navigation'));
+const Header = lazy(() => import('../../components/header'));
+const About = lazy(() => import('../../components/about'));
+const Skills = lazy(() => import('../../components/skills'));
+const Experience = lazy(() => import('../../components/experience'));
+const Contact = lazy(() => import('../../components/contact'));
+const Footer = lazy(() => import('../../components/footer'));
+const Rocket = lazy(() => import('../../components/rocket'));
 
 export default function Home(props: any): ReactElement {
+	
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	});
+
 	return (
-		<div id='home'>
-			<Rocket />
-			<Navigation />
-			<Header />
-			<About />
-			<Skills />
-			<Experience />
-			<Contact />
-			<Footer />
+		<div id='home'>	
+			<Suspense fallback={<Loader />}>
+				<Rocket />
+				<Navigation />
+				<Header />
+				<About />
+				<Skills />
+				<Experience />
+				<Contact />
+				<Footer />
+			</Suspense>
 		</div>
 	);
 }
