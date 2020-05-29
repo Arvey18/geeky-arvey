@@ -33,7 +33,7 @@ jobs:
       # Install Dependencies
       - run:
           name: 'Install Dependencies'
-          command: yarn install
+          command: npm install
 
       - save_cache:
           paths:
@@ -62,7 +62,7 @@ jobs:
       # Test Project
       - run:
           name: 'Build Project'
-          command: yarn build
+          command: npm build
 
       - persist_to_workspace:
           root: .
