@@ -2,7 +2,7 @@ const text = {
   sectionTitle: 'About Me',
   meTitle: 'Hi There',
   meDescription: [
-    'I am currently working as a frontend engineer for a logistic company. I love working, learning, sharing ideas and chit-chat with a team. I like learning and solving things which makes me happy as a dev. I am comfortable with using JavaScript, Wordpress and ReactJS.',
+    'I am currently working as a frontend engineer for a logistic company. I love working, learning, sharing ideas and chit-chat with a team. I love solving things which makes me happy as a dev. I am comfortable using JavaScript, Wordpress and ReactJS.',
     'My hobbies are playing PC games and basketball. I love travelling and driving which makes me relax.'
   ],
   meContacts: [

@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 
 // image
-import Man from '../../../assets/images/man.png';
+import Man from '../../../assets/images/arvey.png';
 
 // styles
 import './style.scss';

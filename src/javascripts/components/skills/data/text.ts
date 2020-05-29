@@ -1,26 +1,28 @@
 const text = {
-  sectionTitle: 'About Me',
-  meTitle: 'Hi There',
-  meDescription: [
-    'I am currently working as a frontend engineer for a logistic company. I love working, learning, sharing ideas and chit-chat with a team. I like learning and solving things which makes me happy as a dev. I am comfortable with using JavaScript, Wordpress and ReactJS.',
-    'My hobbies are playing PC games and basketball. I love travelling and driving which makes me relax.'
-  ],
-  meContacts: [
+  preTitle: "I'M EXPERT ON",
+  title: "Let's Work Together",
+  description: "I mainly work on front-end using tech stack html, css, javasccript. I do also know working on CMS like wordpress and JavaScript framework ReactJS. I'm Git for versioning tool, Jira for task management and InVision, Sketch for UI reference.  Listed on the right are the most im comfortable creating website or web app.",
+  button: "Contact Me",
+  skills: [
     {
-      contactName: "Name:",
-      contactDetail: "Arvey Jimenez",
+      skill: 'HTML',
+      percentage: 95
     },
     {
-      contactName: "Email:",
-      contactDetail: "arve505@gmail.com",
+      skill: 'JavaScript',
+      percentage: 90
     },
     {
-      contactName: "Phone",
-      contactDetail: "+63 927 944 1822",
+      skill: 'CSS',
+      percentage: 93
     },
     {
-      contactName: "LinkedIn",
-      contactDetail: "arveyj07",
+      skill: 'Wordpress',
+      percentage: 88
+    },
+    {
+      skill: 'ReactJS',
+      percentage: 93
     }
   ]
 };

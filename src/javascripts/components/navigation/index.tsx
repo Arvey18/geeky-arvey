@@ -27,6 +27,7 @@ export default function Navigation(props: IProps): ReactElement {
 		};
 	}, []);
 
+	// custom functions
 	const handleScrollEvent = () => {
 		const scroll = window.scrollY;
 		console.log(scroll);
