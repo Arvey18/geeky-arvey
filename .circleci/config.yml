@@ -11,7 +11,7 @@ jobs:
           - development
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.16.2
+      - image: circleci/node:12.9.0
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -33,13 +33,17 @@ jobs:
       # Install Dependencies
       - run:
           name: 'Install Dependencies'
-          command: npm install
+          command: yarn install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   build2:
     filters:
       branches:
@@ -47,7 +51,7 @@ jobs:
           - development
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.16.2
+      - image: circleci/node:12.9.0
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -62,7 +66,7 @@ jobs:
       # Test Project
       - run:
           name: 'Build Project'
-          command: npm build
+          command: yarn build
 
       - persist_to_workspace:
           root: .
@@ -76,7 +80,7 @@ jobs:
           - development
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.16.2
+      - image: circleci/node:12.9.0
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
