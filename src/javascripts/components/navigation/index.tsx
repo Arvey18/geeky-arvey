@@ -67,7 +67,6 @@ export default function Navigation(props: IProps): ReactElement {
 		
 		for(let x = 0; x < menus.length; x++) {
 			const el = document.querySelector(menus[x].target);
-			console.log(el, isElementInViewport(el));
 			if(isElementInViewport(el)){
 				const menuEl = document.getElementById(menus[x].id);
 				const menusNav = document.getElementsByClassName('menus-nav');

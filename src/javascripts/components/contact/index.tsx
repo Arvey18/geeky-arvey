@@ -82,8 +82,7 @@ export default function Experience(props: IProps): ReactElement {
 
 	const handleSubmit = async () => {
 		let recaptcha = localStorage.getItem('recaptcha');
-
-		console.log(recaptcha);
+		
 		if (name !== '' && email !== '') {
 			const templateId = 'my_website';
 			setSending(true);
