@@ -16,7 +16,7 @@ export default function About(props: IProps): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
 	
 	return (
 		<div id="about" className='section about'>

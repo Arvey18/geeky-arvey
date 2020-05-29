@@ -21,7 +21,8 @@ export default function Header(): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
+	
 	return (
 		<div id="header" className='header'>
 			<div className='container'>

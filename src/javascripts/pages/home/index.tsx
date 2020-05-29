@@ -19,7 +19,7 @@ export default function Home(props: any): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
 
 	return (
 		<div id='home'>	

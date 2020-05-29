@@ -1,0 +1,12 @@
+@import '../../../stylesheets/app.scss';
+
+#noMatch {
+  background: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $cream;
+  height: 100vh;
+  font-size: 30px;
+  font-weight: 500;
+}

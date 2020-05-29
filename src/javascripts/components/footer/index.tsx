@@ -18,7 +18,7 @@ export default function Footer(props: IProps): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
 
 	return (
 		<div className='footer'>

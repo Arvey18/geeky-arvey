@@ -8,6 +8,9 @@ import './style.scss';
 // data
 import text from './data/text';
 
+// images
+import Loader from '../../../assets/images/loader.svg';
+
 // interface
 interface IProps {}
 
@@ -28,7 +31,7 @@ export default function Experience(props: IProps): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
 
 	// custom functions
 	const validateEmail = (email: string) => {
@@ -130,11 +133,11 @@ export default function Experience(props: IProps): ReactElement {
 						<div
 							className={classNames(
 								'form-field-group',
-								sending ? 'sending-form' : ''
+								sending && 'sending-form'
 							)}
 						>
-							<div className="form-loader">
-								{/* <img src={FormLoader} alt="form-loader" /> */}
+							<div className={classNames("form-loader", sending && 'sending-form')}>
+								<img src={Loader} alt="form-loader" />
 							</div>
 							<div className="flex-row">
 								<div className="flex-one">

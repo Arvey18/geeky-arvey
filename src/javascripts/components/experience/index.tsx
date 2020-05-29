@@ -14,7 +14,7 @@ export default function Experience(props: IProps): ReactElement {
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
-	});
+	}, []);
 	
 	return (
 		<div id="experience" className='section experience'>
