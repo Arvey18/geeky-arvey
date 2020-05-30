@@ -52,6 +52,13 @@
         color: $white;
         line-height: 68px;
         margin-bottom: 20px;
+        white-space: nowrap;
+        border-right: 4px solid transparent;
+        overflow: hidden;
+        display: inline-block;
+        animation:
+          typing 3.5s steps(30, end),
+          blink-caret .5s step-end 7;
       }
 
       .description {
