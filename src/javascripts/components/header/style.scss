@@ -5,6 +5,7 @@
   height: 100vh;
   display: flex;
   flex-flow: column;
+  min-height: 480px;
 
   .container {
     display: flex;
@@ -81,9 +82,121 @@
       margin-top: 100px;
 
       img {
+        position: relative;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
         max-height: 800px;
+        max-width: 100%;
       }
     }
 
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .header {
+    .container {
+      .content {
+        width: 100%;
+      }
+
+      .content-image {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    .container {
+      .content {
+        text-align: center;
+
+        .social-links {
+          justify-content: center;
+          margin-bottom: 15px;
+
+          a {
+            margin-right: 20px;
+            font-size: 16px;
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        .title {
+          white-space: normal;
+          animation: none;
+          font-size: 38px;
+          border: none;
+          line-height: normal;
+          margin-bottom: 10px;
+        }
+
+        .description {
+          font-size: 16px;
+          line-height: 24px;
+          max-width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    .container {
+      .content {
+        text-align: center;
+
+        .social-links {
+          justify-content: center;
+          margin-bottom: 15px;
+
+          a {
+            margin-right: 20px;
+            font-size: 16px;
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        .title {
+          white-space: normal;
+          animation: none;
+          font-size: 28px;
+          border: none;
+          line-height: normal;
+          margin-bottom: 10px;
+        }
+
+        .description {
+          font-size: 14px;
+          line-height: 22px;
+          max-width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    .container {
+      .content {
+        .description {
+          max-width: 100%;
+        }
+      }
+    }
   }
 }

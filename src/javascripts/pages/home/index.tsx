@@ -6,6 +6,7 @@ import './style.scss';
 // components
 import Loader from '../../components/loader';
 const Navigation = lazy(() => import('../../components/navigation'));
+const MobileNavigation = lazy(() => import('../../components/mobileNavigation'));
 const Header = lazy(() => import('../../components/header'));
 const About = lazy(() => import('../../components/about'));
 const Skills = lazy(() => import('../../components/skills'));
@@ -26,6 +27,7 @@ export default function Home(props: any): ReactElement {
 			<Suspense fallback={<Loader />}>
 				<Rocket />
 				<Navigation />
+				<MobileNavigation />
 				<Header />
 				<About />
 				<Skills />

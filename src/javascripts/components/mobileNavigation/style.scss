@@ -1,0 +1,15 @@
+@import '../../../stylesheets/app.scss';
+
+.mobile-navigation {
+  position: fixed;
+  z-index: 99;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  max-width: 480px;
+  background: $black;
+  top: 0px;
+  right: 0px;
+  transition: linear 0.3s all;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, .25);
+}

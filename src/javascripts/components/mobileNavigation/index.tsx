@@ -25,7 +25,7 @@ interface MenusType {
 	duration: number;
 }
 
-export default function Navigation(props: IProps): ReactElement {
+export default function MobileNavigation(props: IProps): ReactElement {
 
 	// variable
 	let lastScrollTop = 0;
@@ -157,26 +157,8 @@ export default function Navigation(props: IProps): ReactElement {
 	}
 
 	return (
-		<div id="navigation" className={classNames('navigation flex-row')}>
-			<div className='container'>
-				<div className='logo-wrapper'>
-					<img className='logo' src={logo} alt='logo' />
-				</div>
-				<div className='menus-wrapper'>
-					{menus.map((val: MenusType, key: number) => (
-						<div id={val.id} onClick={() => handleNavClick(val.target, val.duration)} className={classNames('menus-nav',key === 0 && 'active')} key={key}>
-							{val.menu}
-						</div>
-					))}
-				</div>
-				<div className="menus-wrapper-mobile">
-					<div className="bar">
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
-			</div>
+		<div id="mobile-navigation" className={classNames('mobile-navigation flex-row')}>
+			
 		</div>
 	);
 }
