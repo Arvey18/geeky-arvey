@@ -4,6 +4,10 @@
   position: relative;
   background: $black;
 
+  .animate-it {
+    opacity: 0;
+  }
+
   .experiences {
     position: relative;
     width: 1000px;

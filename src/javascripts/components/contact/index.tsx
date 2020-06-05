@@ -127,7 +127,7 @@ export default function Experience(props: IProps): ReactElement {
 					<h2>{text.sectionTitle}</h2>
 					<p>{text.sectionDescription}</p>
 				</div>
-				<div className="content">
+				<div className="content animate-it" data-animation="animate__fadeIn">
 					<div className="one form-fields">
 						<div
 							className={classNames(

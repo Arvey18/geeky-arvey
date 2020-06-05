@@ -32,7 +32,7 @@ export default function Skills(props: IProps): ReactElement {
 							text.skills.map((val: any, key: number) => 
 							<div key={key} className="skill-block">
 								<div className="skill-name">{val.skill}</div>
-								<div className={classNames("skill-line", "p" + val.percentage)}>
+								<div data-animation="expand" className={classNames("skill-line animate-it", "p" + val.percentage)}>
 									<div className="skill-label">{val.percentage}%</div>
 								</div>
 							</div>	

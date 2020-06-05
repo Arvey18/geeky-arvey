@@ -6,6 +6,10 @@
   flex-flow: column;
 
   .container {
+    .animate-it {
+      opacity: 0;
+    }
+
     .content {
       position: relative;
       max-width: 780px;

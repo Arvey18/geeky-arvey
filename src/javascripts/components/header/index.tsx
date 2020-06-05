@@ -33,7 +33,6 @@ export default function Header(): ReactElement {
 								<i className={val.icon}></i>
 							</a>
 						))}
-						<div></div>
 					</div>
 					<div className='title'>{text.title}</div>
 					<div className='description'>{text.description}</div>
@@ -42,7 +41,7 @@ export default function Header(): ReactElement {
 					</div>
 				</div>
 				<div className='content-image'>
-					<img src={Man} alt='profile' />
+					<img data-animation="animate__fadeIn" className="animate-it" src={Man} alt='profile' />
 				</div>
 			</div>
 		</div>

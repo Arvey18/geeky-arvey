@@ -26,9 +26,9 @@ export default function About(props: IProps): ReactElement {
 				</div>
 				<div className="content">
 					<div className="content-image">
-						<img src={Man} alt="profile"/>
+						<img data-animation="animate__fadeInLeft" className="animate-it" src={Man} alt="profile"/>
 					</div>
-					<div className="content-text">
+					<div data-animation="animate__fadeInRight" className="animate-it content-text">
 						<h4>{text.meTitle}</h4>
 						<p>{text.meDescription[0]}</p>
 						<p>{text.meDescription[1]}</p>

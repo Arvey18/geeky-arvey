@@ -8,6 +8,10 @@
     display: flex;
     flex-flow: row;
 
+    .animate-it {
+      opacity: 0;
+    }
+
     &>div {
       flex: 1;
 

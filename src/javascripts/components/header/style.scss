@@ -12,6 +12,10 @@
     align-items: center;
     overflow: hidden;
 
+    .animate-it {
+      opacity: 0;
+    }
+
     .content {
       width: 50%;
       margin-top: 100px;

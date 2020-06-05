@@ -27,10 +27,12 @@ export default function Experience(props: IProps): ReactElement {
 						text.experiences.map((val: any, key: number) => 
 							<div key={key} className={classNames("experience-block", key % 2 === 0 && 'right')}>
 								<div>
-									<div className="year">{val.year}</div>
-									<div className="company">{val.company}</div>
-									<div className="role">{val.role}</div>
-									<div className="job">{val.job}</div>
+									<div className="animate-it" data-animation={key % 2 === 0 ? 'animate__fadeInRight' : 'animate__fadeInLeft' }>
+										<div  className="year">{val.year}</div>
+										<div className="company">{val.company}</div>
+										<div className="role">{val.role}</div>
+										<div className="job">{val.job}</div>
+									</div>
 								</div>
 							</div>
 						)
