@@ -15,7 +15,6 @@ import Loader from '../../../assets/images/loader.svg';
 interface IProps {}
 
 export default function Experience(props: IProps): ReactElement {
-
 	// use states
 	const [name, setName] = React.useState('');
 	const [email, setEmail] = React.useState('');
@@ -82,7 +81,7 @@ export default function Experience(props: IProps): ReactElement {
 
 	const handleSubmit = async () => {
 		let recaptcha = localStorage.getItem('recaptcha');
-		
+
 		if (name !== '' && email !== '') {
 			const templateId = 'my_website';
 			setSending(true);
@@ -92,10 +91,10 @@ export default function Experience(props: IProps): ReactElement {
 				setErrorMessage('Please click Recaptcha');
 			} else {
 				sendFeedback(templateId, {
-					name: name,
-					email: email,
-					phone: phone,
-					message: message,
+					'name': name,
+					'email': email,
+					'phone': phone,
+					'message': message,
 					'g-recaptcha-response': recaptcha,
 				}).then((res: string) => {
 					if (res === 'OK') {
@@ -121,54 +120,49 @@ export default function Experience(props: IProps): ReactElement {
 	};
 
 	return (
-		<div id="contact" className='section contact'>
+		<div id='contact' className='section contact'>
 			<div className='container'>
-				<div className="section-header">
+				<div className='section-header'>
 					<h2>{text.sectionTitle}</h2>
 					<p>{text.sectionDescription}</p>
 				</div>
-				<div className="content animate-it" data-animation="animate__fadeIn">
-					<div className="one form-fields">
-						<div
-							className={classNames(
-								'form-field-group',
-								sending && 'sending-form'
-							)}
-						>
-							<div className={classNames("form-loader", sending && 'sending-form')}>
-								<img src={Loader} alt="form-loader" />
+				<div className='content animate-it' data-animation='animate__fadeIn'>
+					<div className='one form-fields'>
+						<div className={classNames('form-field-group', sending && 'sending-form')}>
+							<div className={classNames('form-loader', sending && 'sending-form')}>
+								<img src={Loader} alt='form-loader' />
 							</div>
-							<div className="flex-row">
-								<div className="flex-one">
+							<div className='flex-row'>
+								<div className='flex-one'>
 									<div
 										className={classNames(
 											'input-con',
 											reqFields && name === '' ? 'error' : '',
-											sending ? 'sending' : ''
+											sending ? 'sending' : '',
 										)}
 									>
 										<input
 											value={name}
-											onChange={event => handleFormFields(event, 'name')}
-											type="text"
-											placeholder="Name *"
+											onChange={(event) => handleFormFields(event, 'name')}
+											type='text'
+											placeholder='Name *'
 											disabled={sending}
 										/>
 									</div>
 								</div>
-								<div className="flex-one">
+								<div className='flex-one'>
 									<div
 										className={classNames(
 											'input-con',
 											errorEmail || (reqFields && email === '') ? 'error' : '',
-											sending ? 'sending' : ''
+											sending ? 'sending' : '',
 										)}
 									>
 										<input
 											value={email}
-											onChange={event => handleFormFields(event, 'email')}
-											type="email"
-											placeholder="Email *"
+											onChange={(event) => handleFormFields(event, 'email')}
+											type='email'
+											placeholder='Email *'
 											disabled={sending}
 										/>
 									</div>
@@ -177,70 +171,55 @@ export default function Experience(props: IProps): ReactElement {
 							<div className={classNames('input-con', sending ? 'sending' : '')}>
 								<input
 									value={phone}
-									onChange={event => handleFormFields(event, 'phone')}
-									type="text"
-									placeholder="Phone"
+									onChange={(event) => handleFormFields(event, 'phone')}
+									type='text'
+									placeholder='Phone'
 									disabled={sending}
 								/>
 							</div>
-							<div
-								className={classNames(
-									'input-con no-margin',
-									sending ? 'sending' : ''
-								)}
-							>
+							<div className={classNames('input-con no-margin', sending ? 'sending' : '')}>
 								<textarea
 									value={message}
-									onChange={event => handleFormFields(event, 'message')}
-									placeholder="Message"
+									onChange={(event) => handleFormFields(event, 'message')}
+									placeholder='Message'
 									disabled={sending}
 								/>
 							</div>
 						</div>
-						<div className="input-con">
-							<div id="recaptchaCon" data-size="normal"></div>
+						<div className='input-con'>
+							<div id='recaptchaCon' data-size='normal'>
+								<div>
+									This site is protected by reCAPTCHA and the Google{' '}
+									<a href='https://policies.google.com/privacy'>Privacy Policy</a> and{' '}
+									<a href='https://policies.google.com/terms'>Terms of Service</a> apply.
+								</div>
+							</div>
 						</div>
-						<div className="flex-row form-buttons">
-							<div className="flex-one">
-								<div className="button-con">
-									<div
-										onClick={handleSubmit}
-										className={classNames(
-											'submit-button',
-											sending ? 'sending-form' : ''
-										)}
-									>
+						<div className='flex-row form-buttons'>
+							<div className='flex-one'>
+								<div className='button-con'>
+									<div onClick={handleSubmit} className={classNames('submit-button', sending ? 'sending-form' : '')}>
 										Send
 									</div>
 								</div>
 							</div>
-							<div className="flex-one">
-								<div className="resume-button-con">
+							<div className='flex-one'>
+								<div className='resume-button-con'>
 									<a
-										className="resume"
-										target="_blank"
-										rel="noopener noreferrer"
-										href="https://www.dropbox.com/s/nxhz3k66lkl3ng1/Resume%20-%20Arvey%20Jimenez.docx?dl=0"
+										className='resume'
+										target='_blank'
+										rel='noopener noreferrer'
+										href='https://www.dropbox.com/s/nxhz3k66lkl3ng1/Resume%20-%20Arvey%20Jimenez.docx?dl=0'
 									>
 										Download Resume
 									</a>
 								</div>
 							</div>
 						</div>
-						<div
-							className={classNames(
-								'form-message error-message',
-								errorMessage !== '' ? 'show' : ''
-							)}
-						>
+						<div className={classNames('form-message error-message', errorMessage !== '' ? 'show' : '')}>
 							{errorMessage}
 						</div>
-						<div
-							className={classNames(
-								'form-message success-message',
-								successMessage ? 'show' : ''
-							)}
-						>
+						<div className={classNames('form-message success-message', successMessage ? 'show' : '')}>
 							Your Message was successfully sent!
 							<br />
 							Have a great Day!

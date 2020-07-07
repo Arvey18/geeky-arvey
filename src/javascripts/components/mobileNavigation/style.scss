@@ -1,15 +1,55 @@
 @import '../../../stylesheets/app.scss';
 
 .mobile-navigation {
-  position: fixed;
-  z-index: 99;
-  padding: 15px;
-  width: 100%;
-  height: 100%;
-  max-width: 480px;
-  background: $black;
-  top: 0px;
-  right: 0px;
-  transition: linear 0.3s all;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, .25);
+	position: fixed;
+	z-index: 9999;
+	padding: 30px 15px;
+	width: 100%;
+	height: 100%;
+	max-width: 480px;
+	background: $black;
+	top: 0px;
+	right: -490px;
+	transition: linear 0.3s all;
+	box-shadow: -4px 0 20px rgba(0, 0, 0, 0.25);
+	&.active {
+		right: 0px;
+	}
+	.logo-container {
+		.logo {
+			cursor: pointer;
+			height: 35px;
+		}
+	}
+	.close-icon-container {
+		position: absolute;
+		right: 15px;
+		top: 40px;
+		img {
+			cursor: pointer;
+		}
+	}
+	.menu-wrapper {
+		margin-top: 50px;
+		& > div {
+			cursor: pointer;
+			margin-bottom: 40px;
+			color: $cream;
+			font-weight: 500;
+			font-size: 16px;
+			transition: ease 0.3s color;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
+			&:hover {
+				color: $red;
+			}
+
+			&.active {
+				color: $red;
+			}
+		}
+	}
 }

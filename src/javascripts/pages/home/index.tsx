@@ -1,4 +1,4 @@
-import React, {ReactElement, Suspense, lazy } from 'react';
+import React, {ReactElement, Suspense, lazy} from 'react';
 
 // styles
 import './style.scss';
@@ -16,18 +16,25 @@ const Footer = lazy(() => import('../../components/footer'));
 const Rocket = lazy(() => import('../../components/rocket'));
 
 export default function Home(props: any): ReactElement {
-	
+	// use states
+	const [showNav, setShowNav] = React.useState(false);
+
 	// use effects
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	// custom functions
+	const handleShowNav = (status: boolean) => {
+		setShowNav(status);
+	};
+
 	return (
-		<div id='home'>	
+		<div id='home'>
 			<Suspense fallback={<Loader />}>
 				<Rocket />
-				<Navigation />
-				<MobileNavigation />
+				<Navigation showNavMenu={showNav} setShowNavMenu={(status: boolean) => handleShowNav(status)} />
+				<MobileNavigation showNavMenu={showNav} setShowNavMenu={(status: boolean) => handleShowNav(status)} />
 				<Header />
 				<About />
 				<Skills />

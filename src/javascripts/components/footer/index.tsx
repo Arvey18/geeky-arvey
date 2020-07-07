@@ -10,7 +10,6 @@ import './style.scss';
 interface IProps {}
 
 export default function Footer(props: IProps): ReactElement {
-
 	// variables
 	const date = new Date();
 	const year = date.getFullYear();
@@ -23,7 +22,10 @@ export default function Footer(props: IProps): ReactElement {
 	return (
 		<div className='footer'>
 			<div className='container'>
-				Copyright	© {year} <img src={logoRed} alt="logo" />. All rights reserved.
+				<span>
+					Copyright © {year} <img src={logoRed} alt='logo' />.
+				</span>{' '}
+				<span>All rights reserved.</span>
 			</div>
 		</div>
 	);

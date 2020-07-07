@@ -30,7 +30,7 @@ body {
 	display: flex;
 	flex-flow: row wrap;
 
-	&>div {
+	& > div {
 		padding: 0px 15px;
 
 		&:first-child {
@@ -78,7 +78,7 @@ body {
 	margin-bottom: 100px;
 
 	&:after {
-		content: "";
+		content: '';
 		height: 3px;
 		width: 50px;
 		background: $red;
@@ -136,6 +136,12 @@ body {
 #recaptchaCon {
 	width: 100%;
 	margin-top: 10px;
+	color: $white;
+	font-size: 10px;
+	a {
+		color: $red;
+		font-size: 10px;
+	}
 }
 
 button {
@@ -157,9 +163,20 @@ button {
 	}
 }
 
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
 @media screen and (max-width: 767px) {
 	button {
 		font-size: 13px;
 		padding: 11px 30px;
+	}
+	.section {
+		padding: 70px 0px;
+	}
+	.section-header {
+		padding-bottom: 30px;
+		margin-bottom: 80px;
 	}
 }

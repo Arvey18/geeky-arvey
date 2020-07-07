@@ -1,22 +1,43 @@
 @import '../../../stylesheets/app.scss';
 
 .footer {
-  position: relative;
-  background: $black;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-align: center;
-  color: $cream;
+	position: relative;
+	background: $black;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-align: center;
+	color: $cream;
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 70px;
+		span {
+			display: flex;
+			align-items: center;
+			&:first-child {
+				margin-right: 6px;
+			}
+		}
+		img {
+			max-width: 100px;
+			margin-left: 6px;
+		}
+	}
+}
 
-    img {
-      max-width: 100px;
-      margin-left: 6px;
-    }
-  }
+@media screen and (max-width: 767px) {
+	.footer {
+		.container {
+			flex-flow: column;
+			height: 90px;
+			span {
+				&:first-child {
+					margin-right: 0px;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
 }
