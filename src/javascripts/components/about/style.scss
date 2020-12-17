@@ -1,0 +1,83 @@
+@import '../../../stylesheets/app.scss';
+
+.about {
+	position: relative;
+	background: $black;
+
+	.content {
+		display: flex;
+		flex-flow: row;
+
+		.animate-it {
+			opacity: 0;
+		}
+
+		& > div {
+			flex: 1;
+
+			&.content-image {
+				display: flex;
+				justify-content: center;
+
+				img {
+					max-height: 500px;
+					max-width: 100%;
+				}
+			}
+
+			&.content-text {
+				h4 {
+					color: $white;
+					margin: 50px 0px 20px;
+				}
+
+				p {
+					color: $cream;
+					max-width: 90%;
+				}
+
+				.content-contacts {
+					display: flex;
+					flex-flow: row;
+					margin-top: 60px;
+
+					& > div {
+						flex: 1;
+						display: flex;
+						flex-flow: column;
+
+						& > div {
+							flex: 1;
+							margin-bottom: 40px;
+
+							&:last-child {
+								margin-bottom: 0px;
+							}
+						}
+					}
+
+					.contact-name {
+						font-size: 18px;
+						color: $red;
+						font-weight: 600;
+						margin-bottom: 5px;
+					}
+
+					.contact-detail {
+						font-size: 14px;
+						color: $cream;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.about {
+		.content {
+			flex-flow: column;
+		}
+	}
+}

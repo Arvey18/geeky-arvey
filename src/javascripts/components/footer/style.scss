@@ -1,28 +1,43 @@
 @import '../../../stylesheets/app.scss';
 
 .footer {
-  position: relative;
-  background: $lightBlack;
-  padding: 20px 15px;
-  width: 100%;
+	position: relative;
+	background: $black;
+	font-size: 14px;
+	letter-spacing: 1px;
+	text-align: center;
+	color: $cream;
 
-  .copyright {
-    color: $white;
-    display: flex;
-    justify-content: center;
-
-    p {
-      margin: 0px;
-      font-size: 12px;
-      line-height: 20px;
-      letter-spacing: 1px;
-      text-align: center;
-    }
-  }
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 70px;
+		span {
+			display: flex;
+			align-items: center;
+			&:first-child {
+				margin-right: 6px;
+			}
+		}
+		img {
+			max-width: 100px;
+			margin-left: 6px;
+		}
+	}
 }
 
-@media screen and (max-width: 768px) {
-  .footer .copyright p {
-    width: 160px;
-  }
+@media screen and (max-width: 767px) {
+	.footer {
+		.container {
+			flex-flow: column;
+			height: 90px;
+			span {
+				&:first-child {
+					margin-right: 0px;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
 }

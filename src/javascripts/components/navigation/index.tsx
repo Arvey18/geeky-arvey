@@ -1,146 +1,200 @@
 import React, {ReactElement} from 'react';
 import classNames from 'classnames';
 
+// utils
+import doScrolling from '../../utils/scrollToSection';
+import isElementInViewport from '../../utils/isElementOnViewport';
+
 // styles
 import './style.scss';
 
 // images
-import logoBlack from '../../../assets/images/geeky-arvey-logo-black.png';
-import logo from '../../../assets/images/geeky-arvey-logo.png';
+import logo from '../../../assets/images/logo-red.svg';
 
-// variables
+// data
+import menus from './data/menus';
+
+// interface
 interface IProps {
-  open: boolean;
-  handleNavPanel: (status: boolean) => void;
+	showNavMenu: boolean;
+	setShowNavMenu: (status: boolean) => void;
+}
+
+interface MenusType {
+	id: string;
+	menu: string;
+	url: string;
+	target: string;
+	duration: number;
 }
 
 export default function Navigation(props: IProps): ReactElement {
-  // variables
-  const {open, handleNavPanel} = props;
+	// variable
+	let lastScrollTop = 0;
+	const {showNavMenu, setShowNavMenu} = props;
 
-  // use states
-  const [openNav, setOpenNav] = React.useState(false);
-  const [scrolling, setScrolling] = React.useState(false);
+	// use effects
+	React.useEffect(() => {
+		window.addEventListener('scroll', handleScrollEvent);
+		window.addEventListener('load', handleLoadEvent);
+		return () => {
+			window.removeEventListener('scroll', handleScrollEvent);
+			window.removeEventListener('load', handleLoadEvent);
+		};
+	});
 
-  // use effects
-  React.useEffect(() => {
-    document.addEventListener('load', handleScrollEvent);
-    document.addEventListener('scroll', handleScrollEvent);
-    return () => {
-      document.removeEventListener('load', handleScrollEvent);
-      document.removeEventListener('scroll', handleScrollEvent);
-    };
-  });
+	// use states
+	const [showNav, setShowNav] = React.useState(false);
 
-  React.useEffect(() => {
-    setOpenNav(open);
-  }, [open]);
+	React.useEffect(() => {
+		setShowNav(showNavMenu);
+	}, [showNavMenu]);
 
-  // custom functions
-  const handleNav = () => {
-    // setOpenNav(!openNav);
-    handleNavPanel(!openNav);
-  };
+	// custom functions
+	const handleScrollEvent = () => {
+		const scroll = window.scrollY;
+		let st = window.pageYOffset || document.documentElement.scrollTop;
+		const element = document.getElementById('navigation');
+		if (element !== null) {
+			if (scroll !== 0) {
+				if (st > lastScrollTop) {
+					element.classList.remove('show');
+					element.classList.add('hide');
+				} else {
+					element.classList.remove('hide');
+					element.classList.add('show');
+				}
+				lastScrollTop = st <= 0 ? 0 : st;
+			} else {
+				element.classList.remove('show');
+				element.classList.remove('hide');
+				element.classList.remove('with-bg');
+			}
 
-  const handleScrollEvent = () => {
-    let scroll = window.scrollY;
-    if (scroll >= 90) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
-  };
+			if (scroll > 400) {
+				element.classList.add('with-bg');
+			}
+		}
 
-  const getElementY = (query: any) => {
-    return (
-      window.pageYOffset +
-      document.querySelector(query).getBoundingClientRect().top
-    );
-  };
+		for (let x = 0; x < menus.length; x++) {
+			const el = document.querySelector(menus[x].target);
+			if (isElementInViewport(el)) {
+				const menuEl = document.getElementById(menus[x].id);
+				const menusNav = document.getElementsByClassName('menus-nav');
+				if (menuEl !== null && el !== null) {
+					const animateEl = el.querySelectorAll('.animate-it');
 
-  const doScrolling = (element: any, duration: number) => {
-    let startingY = window.pageYOffset;
-    let elementY = getElementY(element);
-    // If element is close to page's bottom then window will scroll only to some position above the element.
-    let targetY =
-      document.body.scrollHeight - elementY < window.innerHeight
-        ? document.body.scrollHeight - window.innerHeight
-        : elementY;
-    let diff = targetY - startingY;
-    // Easing function: easeInOutCubic
-    // From: https://gist.github.com/gre/1650294
-    let easing = (t: any) => {
-      return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-    };
-    let start = 0;
+					for (let i = 0; i < animateEl.length; i++) {
+						const animation = animateEl[i].getAttribute('data-animation');
+						if (animation !== null) {
+							if (!animateEl[i].classList.contains(animation)) {
+								animateEl[i].classList.add('animate__animated', animation);
+							}
+						}
+					}
 
-    if (!diff) return;
+					for (let y = 0; y < menusNav.length; y++) {
+						menusNav[y].classList.remove('active');
+						if (y + 1 === menusNav.length) {
+							menuEl.classList.add('active');
+							break;
+						}
+					}
+					break;
+				}
+			}
+		}
+	};
 
-    // Bootstrap our animation - it will get called right before next frame shall be rendered.
-    window.requestAnimationFrame(function step(timestamp) {
-      if (!start) start = timestamp;
-      // Elapsed miliseconds since start of scrolling.
-      let time = timestamp - start;
-      // Get percent of completion in range [0, 1].
-      let percent = Math.min(time / duration, 1);
-      // Apply the easing.
-      // It can cause bad-looking slow frames in browser performance tool, so be careful.
-      percent = easing(percent);
+	const handleLoadEvent = () => {
+		const scroll = window.scrollY;
+		let st = window.pageYOffset || document.documentElement.scrollTop;
+		const element = document.getElementById('navigation');
+		if (element !== null) {
+			if (scroll !== 0) {
+				if (st > lastScrollTop) {
+					element.classList.remove('show');
+					element.classList.add('hide');
+				} else {
+					element.classList.remove('hide');
+					element.classList.add('show');
+				}
+				lastScrollTop = st <= 0 ? 0 : st;
+			} else {
+				element.classList.remove('show');
+				element.classList.remove('hide');
+				element.classList.remove('with-bg');
+			}
 
-      window.scrollTo(0, startingY + diff * percent);
+			if (scroll > 400) {
+				element.classList.add('with-bg');
+			}
+		}
 
-      // Proceed with animation as long as we wanted it to.
-      if (time < duration) {
-        window.requestAnimationFrame(step);
-      }
-    });
-  };
+		for (let x = 0; x < menus.length; x++) {
+			const el = document.querySelector(menus[x].target);
+			if (isElementInViewport(el)) {
+				const menuEl = document.getElementById(menus[x].id);
+				const menusNav = document.getElementsByClassName('menus-nav');
+				if (menuEl !== null && el !== null) {
+					const animateEl = el.querySelectorAll('.animate-it');
 
-  const handleReturnHome = (element: any, duration: number, delay: number) => {
-    handleNavPanel(false);
-    setTimeout(() => {
-      doScrolling(element, duration);
-    }, delay);
-  };
+					for (let i = 0; i < animateEl.length; i++) {
+						const animation = animateEl[i].getAttribute('data-animation');
+						if (animation !== null) {
+							if (!animateEl[i].classList.contains(animation)) {
+								animateEl[i].classList.add('animate__animated', animation);
+							}
+						}
+					}
 
-  return (
-    <div
-      className={classNames(
-        'flex-row navigation ',
-        scrolling === true ? 'scrolling' : '',
-        openNav === true ? 'nav-opened' : ''
-      )}
-    >
-      <div className="flex-one flex-center-vertical logo">
-        <img
-          className={classNames(openNav === false ? 'active-logo' : '')}
-          src={logo}
-          alt="logo-arvey-jimenez"
-          onClick={() => handleReturnHome('#hero', 600, 0)}
-        />
-        <img
-          className={classNames(openNav === true ? 'active-logo' : '')}
-          src={logoBlack}
-          alt="logo-black-arvey-jimenez"
-          onClick={() => handleReturnHome('#hero', 600, 350)}
-        />
-      </div>
-      <div className="flex-one flex-center-vertical hamburger-menu">
-        <div
-          className={classNames(
-            'hamburger',
-            openNav === true ? 'black-hamburger' : ''
-          )}
-          onClick={handleNav}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-  );
+					for (let y = 0; y < menusNav.length; y++) {
+						menusNav[y].classList.remove('active');
+						if (y + 1 === menusNav.length) {
+							menuEl.classList.add('active');
+							break;
+						}
+					}
+					break;
+				}
+			}
+		}
+	};
+
+	const handleNavClick = (id: string, duration: number) => {
+		doScrolling(id, duration);
+	};
+
+	const handleShowMobileMenu = (status: boolean) => {
+		setShowNavMenu(status);
+	};
+
+	return (
+		<div id='navigation' className={classNames('navigation flex-row')}>
+			<div className='container'>
+				<div className='logo-wrapper'>
+					<img className='logo' src={logo} alt='logo' />
+				</div>
+				<div className='menus-wrapper'>
+					{menus.map((val: MenusType, key: number) => (
+						<div
+							id={val.id}
+							onClick={() => handleNavClick(val.target, val.duration)}
+							className={classNames('menus-nav', key === 0 && 'active')}
+							key={key}
+						>
+							{val.menu}
+						</div>
+					))}
+				</div>
+				<div className='menus-wrapper-mobile'>
+					<div className={classNames('bar', showNav && 'active')} onClick={() => handleShowMobileMenu(true)}>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }

@@ -2,170 +2,125 @@
 
 .navigation {
   position: fixed;
-  height: 90px;
   z-index: 9;
-  padding: 20px 15px;
+  padding: 40px 15px;
   width: 100%;
   background: transparent;
-  // transition: ease 0.3s background;
-  box-shadow: 0px 0px 1px 1px transparent;
+  top: 0px;
+  box-shadow: none;
+  transition: linear 0.3s all;
 
-
-  &.scrolling {
-    background: $lightBlack;
-    box-shadow: 0px 0px 1px 1px $gold;
+  &.hide {
+    top: -132px;
+    transition: linear 0.3s all;
   }
 
-  &.nav-opened {
-    background: transparent;
-    box-shadow: 0px 0px 1px 1px transparent;
+  &.show {
+    top: 0px;
+    transition: linear 0.3s all;
   }
 
-  .logo {
-    margin-left: 15px;
-    cursor: pointer;
+  &.with-bg {
+    transition: linear 0.3s all;
+    background: $black;
+    box-shadow: 0px -3px 5px #000000;
+  }
 
-    img {
-      display: none;
+  .container {
+    display: flex;
+    flex-flow: row;
 
-      &.active-logo {
-        display: block;
+    &>div {
+      flex: 1;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        height: 50px;
+        cursor: pointer;
       }
     }
-  }
 
-  .hamburger-menu {
-    justify-content: flex-end;
+    .menus-wrapper {
+      display: flex;
+      flex-flow: row wrap;
 
-    .hamburger {
-      position: relative;
-      width: 25px;
-      height: 13px;
-      margin-right: 15px;
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-      -webkit-transition: .5s ease-in-out;
-      -moz-transition: .5s ease-in-out;
-      -o-transition: .5s ease-in-out;
-      transition: .5s ease-in-out;
-      cursor: pointer;
+      align-items: center;
+      justify-content: flex-end;
 
-      span {
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: 50%;
-        background: $white;
-        opacity: 1;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .25s ease-in-out;
-        -moz-transition: .25s ease-in-out;
-        -o-transition: .25s ease-in-out;
-        transition: .25s ease-in-out;
+
+      &>div {
+        cursor: pointer;
+        margin-right: 40px;
+        color: $cream;
+        font-weight: 500;
+        font-size: 16px;
+        transition: ease 0.3s color;
+
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        &:hover {
+          color: $red;
+        }
+
+        &.active {
+          color: $red;
+        }
       }
+    }
 
-      span:nth-child(even) {
-        left: 50%;
-        // border-radius: 0 9px 9px 0;
-      }
-
-      span:nth-child(odd) {
-        left: 0px;
-        // border-radius: 9px 0 0 9px;
-      }
-
-      span:nth-child(1),
-      span:nth-child(2) {
-        top: 0px;
-      }
-
-      span:nth-child(3),
-      span:nth-child(4) {
-        top: 5px;
-      }
-
-      span:nth-child(5),
-      span:nth-child(6) {
-        top: 10px;
-      }
-
-      &.black-hamburger {
-        span {
-          background: $black;
-        }
-
-        span:nth-child(1),
-        span:nth-child(6) {
-          -webkit-transform: rotate(45deg);
-          -moz-transform: rotate(45deg);
-          -o-transform: rotate(45deg);
-          transform: rotate(45deg);
-        }
-
-        span:nth-child(2),
-        span:nth-child(5) {
-          -webkit-transform: rotate(-45deg);
-          -moz-transform: rotate(-45deg);
-          -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-        }
-
-        span:nth-child(1) {
-          left: 5px;
-          top: 7px;
-        }
-
-        span:nth-child(2) {
-          left: calc(50% - 5px);
-          top: 7px;
-        }
-
-        span:nth-child(3) {
-          left: -50%;
-          opacity: 0;
-        }
-
-        span:nth-child(4) {
-          left: 100%;
-          opacity: 0;
-        }
-
-        span:nth-child(5) {
-          left: 5px;
-          top: 10px;
-        }
-
-        span:nth-child(6) {
-          left: calc(50% - 5px);
-          top: 10px;
-        }
-
-      }
+    .menus-wrapper-mobile {
+      display: none;
     }
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .navigation {
-    height: 70px;
-    padding: 15px 15px;
+    padding: 30px 15px;
 
-    &>div {
-      margin: 0px !important;
-    }
+    .container {
+      .menus-wrapper {
+        display: none;
+      }
 
-    .logo img {
-      width: 40px;
-    }
+      .logo-wrapper {
+        .logo {
+          height: 40px;
+        }
+      }
 
-    .hamburger-menu {
-      .hamburger {
-        margin-right: 0px;
+      .menus-wrapper-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .bar {
+          cursor: pointer;
+
+          div {
+            width: 24px;
+            height: 2px;
+            margin-bottom: 5px;
+            background: $white;
+            transition: ease 0.3s background;
+
+            &:last-child {
+              margin-bottom: 0px;
+              width: 16px;
+              margin-left: auto;
+            }
+          }
+
+          &:hover>div {
+            background: $red;
+          }
+        }
       }
     }
   }

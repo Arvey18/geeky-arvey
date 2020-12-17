@@ -266,15 +266,25 @@
   z-index: 9;
 }
 
-//text colors
-.color-white {
-  color: $white;
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
-.color-black {
-  color: $black;
-}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
 
-.color-gold {
-  color: $gold;
+  from,
+  to {
+    border-color: $gold;
+  }
+
+  50% {
+    border-color: transparent;
+  }
 }

@@ -40,12 +40,30 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # Test Project
-      # - run:
-      #   name: Test Project
-      #   command: yarn test
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+  build2:
+    filters:
+      branches:
+        only:
+          - development
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:12.9.0
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
 
-      # Build Project
+    working_directory: ~/geeky-arvey
+
+    steps:
+      - attach_workspace:
+          at: .
+
+      # Test Project
       - run:
           name: 'Build Project'
           command: yarn build
@@ -55,7 +73,7 @@ jobs:
           paths:
             - .
 
-  build2:
+  build3:
     filters:
       branches:
         only:
@@ -86,3 +104,7 @@ workflows:
       - build2:
           requires:
             - build1
+      - build3:
+          requires:
+            - build1
+            - build2

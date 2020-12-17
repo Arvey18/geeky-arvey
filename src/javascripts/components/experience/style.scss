@@ -1,0 +1,146 @@
+@import '../../../stylesheets/app.scss';
+
+.experience {
+	position: relative;
+	background: $black;
+
+	.animate-it {
+		opacity: 0;
+	}
+
+	.experiences {
+		position: relative;
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto;
+
+		.experience-block {
+			position: relative;
+			display: flex;
+			justify-content: flex-start;
+
+			& > div {
+				position: relative;
+				width: 50%;
+				text-align: right;
+				padding-right: 60px;
+				padding-bottom: 10px;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0px;
+					right: -5px;
+					width: 13px;
+					height: 13px;
+					background: $red;
+					border-radius: 50px;
+				}
+
+				&:after {
+					content: '';
+					position: absolute;
+					top: 3px;
+					right: 0px;
+					height: 100%;
+					width: 3px;
+					background: $red;
+				}
+
+				.year {
+					color: $red;
+					font-size: 14px;
+					margin-bottom: 8px;
+				}
+
+				.company {
+					color: $white;
+					font-size: 20px;
+					font-weight: 700;
+					margin-bottom: 20px;
+				}
+
+				.role {
+					font-size: 14px;
+					color: $white;
+					font-weight: 500;
+					margin-bottom: 5px;
+				}
+
+				.job {
+					font-size: 12px;
+					font-weight: 400;
+					color: $cream;
+				}
+			}
+
+			&.right {
+				justify-content: flex-end;
+
+				& > div {
+					text-align: left;
+					padding-left: 60px;
+
+					&:before {
+						left: -8px;
+						right: auto;
+					}
+
+					&:after {
+						right: auto;
+						left: -3px;
+					}
+				}
+			}
+
+			&:last-child {
+				& > div {
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.experience {
+		.experiences {
+			.experience-block {
+				& > div {
+					text-align: left;
+					padding-left: 40px;
+					padding-right: 0px;
+					width: 100%;
+					padding-bottom: 40px;
+					&:before {
+						left: 0px;
+					}
+
+					&:after {
+						left: 5px;
+					}
+				}
+				&.right {
+					justify-content: flex-start;
+					& > div {
+						text-align: left;
+						padding-left: 40px;
+						width: 100%;
+
+						&:before {
+							left: 0px;
+							right: auto;
+						}
+
+						&:after {
+							right: auto;
+							left: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

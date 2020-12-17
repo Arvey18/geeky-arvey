@@ -9,20 +9,21 @@ import '../stylesheets/app.scss';
 import Route from './settings/route';
 
 // variables
-const customHistory = createBrowserHistory();
+const history = createBrowserHistory();
 
 const App: React.FC = () => {
-  // use effects
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-  return (
-    <div id="AJApp">
-      <Router history={customHistory}>
-        <Route />
-      </Router>
-    </div>
-  );
+	// use effects
+	React.useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
+	return (
+		<div id='GArveyApp'>
+			<Router history={history}>
+				<Route />
+			</Router>
+		</div>
+	);
 };
 
 export default App;

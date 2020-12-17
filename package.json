@@ -2,13 +2,14 @@
   "name": "my-new-website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://geeky-arvey.web.app",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/classnames": "^2.2.9",
     "@types/history": "^4.7.3",
-    "@types/jest": "^24.0.0",
+    "@types/jest": "^24.9.0",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -17,6 +18,7 @@
     "emailjs-com": "^2.4.1",
     "firebase-tools": "^7.12.1",
     "history": "^4.10.1",
+    "jest-enzyme": "^7.1.2",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -46,6 +48,12 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.0"
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/enzyme-to-json": "^1.5.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
+    "ts-jest": "^24.3.0"
   }
 }

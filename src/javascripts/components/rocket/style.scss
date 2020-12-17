@@ -1,0 +1,28 @@
+@import '../../../stylesheets/app.scss';
+
+.rocket {
+	position: fixed;
+	bottom: 45px;
+	right: 45px;
+	color: $red;
+	z-index: 0000;
+	transform: rotate(-45deg);
+	font-size: 30px;
+	opacity: 0;
+	cursor: none;
+	transition: ease 0.3s opacity;
+
+	&.show {
+		transition: ease 0.3s opacity;
+		z-index: 999;
+		cursor: pointer;
+		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.rocket {
+		bottom: 20px;
+		right: 20px;
+	}
+}

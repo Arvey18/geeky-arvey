@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Arvey Jimenez Personal Website" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-  <meta property="og:title" content="Geeky Arvey">
-  <meta property="og:description" content="Arvey Jimenez Personal Website">
-  <meta property="og:image" content="%PUBLIC_URL%/bg2-minimize.jpg">
-  <meta property="og:url" content="https://geeky-arvey.firebaseapp.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <!--
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#505668" />
+		<meta
+			name="description"
+			content="Geeky Arvey | Arvey Jimenez Personal Website - a professional web developer with a long time experience creating website or web app.Feel free to contact me for any inquiries or messages you have. Looking forward talking with you!"
+		/>
+		<link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/apple-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/apple-icon-60x60.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/apple-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/apple-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/apple-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/apple-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/apple-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/apple-icon-152x152.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-icon-180x180.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/android-icon-192x192.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicon-96x96.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+		<meta name="msapplication-TileColor" content="#505668" />
+		<meta name="msapplication-TileImage" content="%PUBLIC_URL%/ms-icon-144x144.png" />
+		<link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+		<meta property="og:title" content="Geeky Arvey" />
+		<meta
+			property="og:description"
+			content="Geeky Arvey | Arvey Jimenez Personal Website - a professional web developer with a long time experience creating website or web app.Feel free to contact me for any inquiries or messages you have. Looking forward talking with you!"
+		/>
+		<meta property="og:image" content="https://geeky-arvey.web.app/meta-image.jpg" />
+		<meta property="og:url" content="https://geeky-arvey.web.app/" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
+		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+		<!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -27,35 +47,49 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>Geeky Arvey</title>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,800,900&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function () {
-      emailjs.init("user_HaKaXI0Vpc00qqsiUHHvq");
-    })();
-  </script>
-  <script type="text/javascript">
-    var verifyCallback = function (response) {
-      console.log(response)
-      localStorage.setItem('recaptcha', response);
-    };
-    var onloadCallback = function () {
-      grecaptcha.render('recaptchaCon', {
-        'sitekey': '6LfnKskUAAAAABQ7PPFIV1hSbqXqRUStbL74pABV',
-        'callback': verifyCallback,
-      });
-    };
-  </script>
-</head>
+		<title>Geeky Arvey</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,800,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+		<script src="https://kit.fontawesome.com/eccabd20a2.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+		<script type="text/javascript">
+			(function () {
+				emailjs.init('user_HaKaXI0Vpc00qqsiUHHvq');
+			})();
+		</script>
+		<script type="text/javascript">
+			// var verifyCallback = function (response) {
+			// 	localStorage.setItem('recaptcha', response);
+			// };
+			var onloadCallback = function () {
+				grecaptcha.ready(function () {
+					grecaptcha.execute('6LfRk64ZAAAAAAI8M2Vql4Hk6tqEKt4cbI_dU3jI').then(function (token) {
+						if (token.length == 0) {
+							//reCaptcha not verified
+							alert('Bot Identified!');
+						} else {
+							localStorage.setItem('recaptcha', token);
+						}
+					});
+				});
+				// var response = grecaptcha.getResponse();
+				// if (response.length == 0) {
+				// 	//reCaptcha not verified
+				// 	alert('Bot Identified');
+				// } else {
+				// 	localStorage.setItem('recaptcha', response);
+				// }
+			};
+		</script>
+	</head>
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <!--
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root"></div>
+		<!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -65,8 +99,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-  </script>
-</body>
-
+		<script
+			src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=6LfRk64ZAAAAAAI8M2Vql4Hk6tqEKt4cbI_dU3jI"
+			async
+			defer
+		></script>
+	</body>
 </html>
